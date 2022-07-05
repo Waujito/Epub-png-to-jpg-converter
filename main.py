@@ -4,6 +4,8 @@ import io
 from zipfile import ZipFile
 from bs4 import BeautifulSoup
 
+import re
+
 from PIL import Image
 
 from PIL import ImageFile
@@ -43,9 +45,9 @@ def main():
 
                     wzip.writestr(filename, im_bytes)
                 elif file.endswith('.xhtml') or file.endswith('.html') or file.endswith('.ncx') or file.endswith('.opf') or file.endswith('.xml'):
-                    rfile = rzip.read(file)
+                    rfile = rzip.read(file).decode("utf-8")
 
-                    soup = BeautifulSoup(rfile, 'lxml')
+                    soup = BeautifulSoup(rfile, 'lxml-xml')
 
                     for elem in soup.find_all():
                         for attr in elem.attrs.items():
