@@ -1,0 +1,4 @@
+Pillow # Convert .png to .jpg
+
+BeautifulSoup4 # change image src and type from .png to .jpg in xhtml files
+lxml # BS4 parser
